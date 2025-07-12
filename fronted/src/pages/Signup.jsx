@@ -10,7 +10,9 @@ const Signup = () => {
     username: '', // Changed from 'name' to 'username'
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    isAdmin: false,
+    adminSecret: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -53,6 +55,8 @@ const Signup = () => {
         username: formData.username, // Send username instead of name
         email: formData.email,
         password: formData.password,
+        isAdmin: formData.isAdmin,
+        adminSecret: formData.adminSecret
       });
       
       if (result.success) {
@@ -280,6 +284,35 @@ const Signup = () => {
                 </Link>
               </label>
             </div>
+            
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={formData.isAdmin}
+                  onChange={e => setFormData({ ...formData, isAdmin: e.target.checked })}
+                  className="mr-2"
+                />
+                Register as admin
+              </label>
+            </div>
+            {formData.isAdmin && (
+              <div>
+                <label htmlFor="adminSecret" className="block text-sm font-medium text-gray-700 mb-2">
+                  Admin Secret
+                </label>
+                <input
+                  id="adminSecret"
+                  name="adminSecret"
+                  type="password"
+                  value={formData.adminSecret}
+                  onChange={handleChange}
+                  placeholder="Enter admin secret"
+                  className="w-full px-4 py-3 glass-card rounded-lg text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  required
+                />
+              </div>
+            )}
             
             <Button
               type="submit"

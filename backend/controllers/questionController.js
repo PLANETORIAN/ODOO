@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Question = require('../models/Question');
 const Answer = require('../models/Answer');
 
@@ -48,7 +49,7 @@ const getQuestionById = async (req, res) => {
     const question = await Question.findById(req.params.id)
       .populate('author', 'username reputation avatar bio')
       .populate('acceptedAnswer')
-      .lean(); // <--- THIS IS IMPORTANT
+      .lean();
     if (question) {
       // Increment views
       await Question.findByIdAndUpdate(req.params.id, { $inc: { views: 1 } });
@@ -131,6 +132,10 @@ const updateQuestion = async (req, res) => {
 // @access  Private
 const deleteQuestion = async (req, res) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: 'Invalid question ID' });
+    }
+
     const question = await Question.findById(req.params.id);
 
     if (!question) {
@@ -145,7 +150,8 @@ const deleteQuestion = async (req, res) => {
     // Delete associated answers
     await Answer.deleteMany({ question: req.params.id });
 
-    await question.remove();
+    // Correct way:
+    await Question.deleteOne({ _id: req.params.id });
 
     res.json({ message: 'Question removed' });
   } catch (error) {
