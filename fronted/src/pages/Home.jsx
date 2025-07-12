@@ -16,7 +16,7 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   
   const filters = [
-    { id: 'newest', label: 'Newest', count: 0 },
+    { id: 'newest', label: 'Newest', count: 0},
     { id: 'unanswered', label: 'Unanswered', count: 0 },
     { id: 'popular', label: 'Popular', count: 0 }
   ];

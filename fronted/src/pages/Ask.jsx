@@ -38,7 +38,7 @@ const Ask = () => {
       setTagInput('');
     }
   };
-  
+  //added handle remove tag
   const handleRemoveTag = (tagToRemove) => {
     setTags(tags.filter(tag => tag !== tagToRemove));
   };
