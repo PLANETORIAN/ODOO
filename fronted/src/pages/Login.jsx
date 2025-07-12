@@ -18,7 +18,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || '/';
-  //added try-catch in this function
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -79,7 +79,8 @@ const Login = () => {
             </div>
           </div>
           
-          {/* Form */}
+          
+          
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -155,7 +156,7 @@ const Login = () => {
             </Button>
           </form>
           
-          {/* Footer */}
+          
           <div className="text-center mt-6">
             <p className="text-sm text-gray-600">
               Don't have an account?{' '}
