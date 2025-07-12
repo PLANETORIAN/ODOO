@@ -18,7 +18,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || '/';
-  
+  //added try-catch in this function
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
