@@ -6,7 +6,9 @@ In today's digital landscape, many question-and-answer platforms are cluttered, 
 StackIt addresses this gap by offering a minimal and intuitive Q&A platform tailored for structured knowledge sharing. Inspired by the core principles of platforms like StackOverflow, StackIt strips away unnecessary distractions and focuses on the essentials: asking meaningful questions, providing well-formatted answers, and enabling users to interact through voting and notifications.
 The platform supports multiple user roles—Guest, User, and Admin—each with clear permissions to ensure a safe and collaborative environment. With features like a rich text editor, tagging system, and real-time notifications, StackIt enhances usability while maintaining a clean interface. It’s designed to foster learning, encourage participation, and build a reliable repository of community knowledge.
 
+video link - https://drive.google.com/file/d/10MjZ33Bev48zJgHG8AQ_aukKO_Cm_wXr/view?usp=drivesdk
 ---
+
 
 ## 👥 Team Members
 
