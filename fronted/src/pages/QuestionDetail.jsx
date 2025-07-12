@@ -193,6 +193,24 @@ const QuestionDetail = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <span>By {question.author?.username || 'Anonymous'}</span>
+                  {user?.isAdmin && (
+                    <Button
+                      variant="danger"
+                      onClick={async () => {
+                        if (window.confirm("Are you sure you want to delete this question?")) {
+                          try {
+                            await questionsAPI.delete(question._id);
+                            navigate("/");
+                          } catch (err) {
+                            setError(err.response?.data?.message || "Failed to delete question");
+                          }
+                        }
+                      }}
+                      className="ml-2"
+                    >
+                      Delete Question
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
