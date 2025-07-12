@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/30 backdrop-blur-md border border-white/20 shadow-md;
+  }
+  
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-sm border border-white/30 shadow-sm;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-white/50 border border-gray-200 text-gray-700 rounded-lg hover:bg-white/70 hover:border-gray-300 transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 border border-gray-200 text-gray-600 rounded-lg hover:bg-white/30 hover:border-gray-300 transition-all duration-200;
+  }
+}
+
+/* React Quill Styles */
+.ql-toolbar {
+  @apply border-gray-200 rounded-t-lg bg-white/50 backdrop-blur-sm;
+}
+
+.ql-container {
+  @apply border-gray-200 rounded-b-lg bg-white/30 backdrop-blur-sm;
+}
+
+.ql-editor {
+  @apply text-gray-700;
+}
